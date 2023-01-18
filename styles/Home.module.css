@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding: 6rem;
   min-height: 100vh;
+  font-family: 'Outfit', 'Roboto', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',sans-serif;
+  color: #fff;
+  font-weight: 300;
+  font-size: 26px;
 }
 
 .description {
@@ -275,4 +279,115 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+.main:before {
+  content: '';
+  background: url('../public/sunset.jpeg') no-repeat center center/cover;
+  filter: brightness(50%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.main .search {
+  padding: 1rem;
+}
+
+.main input {
+  height:2rem;
+  padding: 0.5rem;
+  border-radius: 25px;
+  border: 1px solid #fff;
+  background: rgba(255,255,255, 0.1);
+  color: #fff;
+}
+
+.main input::placeholder {
+  color: #fff;
+}
+
+.main .location{
+  margin-top: 6rem;
+}
+
+.main .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.main .col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main .col2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.main .temp {
+  font-size: 5rem;
+  height: 5rem;
+  vertical-align: top;
+  text-align:center
+}
+
+.main .feels {
+  display: flex;
+  flex-direction:column;
+  align-items: flex-end;
+  margin: 0 0.5rem 0 0rem;
+}
+
+.main .feels_box {
+  display: flex;
+  flex-direction:row;
+  align-items: flex-end;
+}
+
+
+
+.main p {
+  font-size: 0.7rem;
+  text-transform: capitalize;
+}
+
+.main h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-top: 0.7rem;
+}
+
+.main h3 {
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.main h4 {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 0.4rem;
+}
+.main .bold {
+  font-weight: 500;
+}
+
+.main .logo {
+  color: black;
+  text-transform: capitalize;
+  font-size: 3.5vh;
+  font-weight: 700;
+  line-height: 0.9em;
+  align-self: start;
+  margin: 1rem 1rem;
+  text-shadow : 1px 1px 5px rgb(216, 214, 214);
 }
