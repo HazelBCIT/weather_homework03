@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import { useState } from 'react'
@@ -9,16 +10,13 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const [location, setLocation] = useState('');
   const [data,setData] = useState({});
-  const [weather, setWeather] = useState();
+  const [weather, setWeaher] = useState();
   const [errorMessage, setErrorMessage] = useState('');
-  // const icon = wInfo.weather[0].icon; 
-
 
   var apiKey = "4228ae0adc973a748d5fafcf75fbc73f"
   var lang = "en";
   var units = "metric";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${units}&appid=${apiKey}&lang=${lang}`
-  // const uri = `http://openweathermap.org/img/w/${icon}.png`
 
   const searchLocation = (event) => {
     if(event.key === "Enter") {
@@ -27,13 +25,13 @@ export default function Home() {
         console.clear();
         setData(response.data)
         console.log(response.data);
-        setWeather(response.data.weather);
+        setWeaher(response.data.weather);
         setErrorMessage("")
       }).catch(err => {
         console.log(err);
         setErrorMessage("Please enter another location.")
         setData({})
-        setWeather()
+        setWeaher
       })
       setLocation('')
     }
@@ -49,30 +47,28 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.logo}>
-          the
-          <br />
-          weather
-          <br />
-          channel 
+            the
+            <br />
+            weather
+            <br />
+            channel 
+          </div>
+        <div className={styles.search}>
+        <input 
+            value={location}
+            onChange={event => setLocation(event.target.value)}
+            placeholder="Enter Location"
+            onKeyDown={searchLocation}
+            type="text"
+          />
         </div>
-       <div className={styles.search}>
-       <input 
-          value={location}
-          onChange={event => setLocation(event.target.value)}
-          placeholder="Enter Location"
-          onKeyDown={searchLocation}
-          type="text"
-        />
-       </div>
-        
 
         {errorMessage}
-        <div className={styles.location}>
+        <div className={styles.city}>
           {data.name}
         </div>
-        
 
-        {
+{
           weather && weather.map((w, index) => {
             return (
               <div key={index}>
@@ -94,16 +90,29 @@ export default function Home() {
                   <div>{w.main}</div>
                   <p>{w.description}</p>
 
-                  <div className={styles.col2}>
-                    <p>WIND</p>
-                    <div>{data.wind.speed.toFixed()}m/s</div>
+                  <div className={styles.bottom}>
+                    <div className={styles.col2}>
+                      <p>MINIMUM<br/>TEMPERATURE</p>
+                      <div>{data.main.temp_min.toFixed()}°C</div>
+                    </div>
+                    <div className={styles.col2}>
+                      <p>MAXIMUM<br/>TEMPERATURE</p>
+                      <div>{data.main.temp_max.toFixed()}°C</div>
+                    </div>
+                    <div className={styles.col2}>
+                      <p>WIND</p>
+                      <div>{data.wind.speed.toFixed()}m/s</div>
+                    </div>
                   </div>
+                  
+                  
                 </div>
               </div>
             )
           })
         }
 
+        <div className={styles.copyright}>©Hazel Wang</div>
       </main>
     </>
   )

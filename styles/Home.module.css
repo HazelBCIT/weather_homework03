@@ -310,7 +310,7 @@
   color: #fff;
 }
 
-.main .location{
+.main .city{
   margin-top: 6rem;
 }
 
@@ -331,7 +331,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3rem;
+  margin: 0 2rem;
+
 }
 
 .main .temp {
@@ -354,11 +355,21 @@
   align-items: flex-end;
 }
 
-
+.main .bottom{
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem;
+  padding: 0.7rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius:25px
+}
 
 .main p {
   font-size: 0.7rem;
   text-transform: capitalize;
+  text-align: center;
 }
 
 .main h2 {
@@ -390,4 +401,11 @@
   align-self: start;
   margin: 1rem 1rem;
   text-shadow : 1px 1px 5px rgb(216, 214, 214);
+}
+
+.main .copyright{
+  font-size: 1rem;
+  color: darkgray;
+  position: fixed;
+  bottom: 15px;
 }
