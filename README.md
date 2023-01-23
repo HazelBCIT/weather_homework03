@@ -1,3 +1,10 @@
+## Description
+This is a weather website. Users can query the current weather by entering the city name.
+
+## API Link
+https://openweathermap.org/
+
+## Tool & Language
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
